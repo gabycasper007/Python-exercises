@@ -1,5 +1,19 @@
 import functools
 
+# Binary Search
+def binary_search(a, x):
+  half = len(a) // 2
+  if half:
+    if a[half] == x:
+      return True
+    elif a[half] > x:
+      return binary_search(a[:half],x)
+    else:
+      return binary_search(a[half:],x)
+  return False
+  
+print(binary_search([0,1,2,4,6,8,10],8))
+
 # Hanoi
 def hanoi (n,s,t,a):
   if n > 0:
@@ -19,6 +33,7 @@ def fact (n):
     return 1
   else:
     return n * fact (n-1)
+  
 print (*[fact(n) for n in range(10)])
 
 # Fibonacci
